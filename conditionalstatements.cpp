@@ -38,7 +38,7 @@ int main() {
     }
     else {
         // Code to execute if none of the above conditions are true
-        std::cout << "z is between 0 and 10 (inclusive)" << std::endl;
+        std::cout << "z is between 0 and 10" << std::endl;
     }
 
     // Short-circuit logic
@@ -47,14 +47,14 @@ int main() {
 
     if (p && q) {
         // Code here will not execute since q is false (short-circuit)
-        std::cout << "This won't be printed" << std::endl;
+        std::cout << "p and q are True" << std::endl;
     }
 
     if (p || q) {
         // Code here will execute since p is true (short-circuit)
-        std::cout << "This will be printed" << std::endl;
+        std::cout << "Either p or q is True" << std::endl;
     }
-
+//have the second condition 100% make code crash, ccode needs to definitely crash. 
     // Switch-case statement
     int choice = 2;
 
