@@ -21,6 +21,9 @@ void project_manager() {
         std::cout << "Enter a description for the project: ";
         getline(std::cin, project.description);
 
+        // Call the calculateMaterialRequirements function
+        calculateMaterialRequirements(project);
+
         projects.push_back(project);
         std::cout << "Project added successfully!\n";
 
@@ -44,6 +47,7 @@ void project_manager() {
         std::cout << "  Material Type: " << project.materialType << "\n";
         std::cout << "  Colors: " << project.colors << "\n";
         std::cout << "  Description: " << project.description << "\n";
+        std::cout << "  Total Yardage: " << project.totalYardage << " yards\n"; // Print the calculated total yardage
         std::cout << "----------------------------------------\n";
     }
 }

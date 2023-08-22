@@ -13,6 +13,7 @@ struct Project {
     std::string materialType;
     std::string colors;
     std::string description;
+    double totalYardage;
 };
 
 void getProjectDetails(Project& project);

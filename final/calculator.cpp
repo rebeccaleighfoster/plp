@@ -32,12 +32,22 @@ void getProjectDetails(Project& project) {
     getline(std::cin, project.colors);
 }
 
-void calculateMaterialRequirements(const Project& project) {
+#include "calculator.h"
+#include <iostream>
+
+void calculateMaterialRequirements(Project& project) {
     // Calculate material requirements based on project details
     double warpLength = project.length * (1 + project.shrinkage / 100.0);
     double totalLength = warpLength * project.sett;
     double totalWidth = project.width;
     double totalYardage = (totalLength * totalWidth) / 36.0;
+    
+    // Calculate required yardage for warp and weft separately
+    double warpRequiredYardage = (warpLength * totalWidth) / 36;
+    double weftRequiredYardage = (project.width * project.length) / 36;
+
+    // Assign the calculated values to the Project's member variables
+    project.totalYardage = warpRequiredYardage + weftRequiredYardage;
 
     std::cout << "Material Requirements for " << project.name << ":\n";
     std::cout << "----------------------------------------\n";
@@ -49,6 +59,7 @@ void calculateMaterialRequirements(const Project& project) {
     std::cout << "Material Type: " << project.materialType << "\n";
     std::cout << "Colors: " << project.colors << "\n";
     std::cout << "Description: " << project.description << "\n";
-    std::cout << "Total Yardage: " << totalYardage << " yards\n";
+    std::cout << "Total Yardage: " << project.totalYardage << " yards\n";
     std::cout << "----------------------------------------\n";
 }
+
